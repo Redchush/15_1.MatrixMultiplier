@@ -94,8 +94,8 @@ public class Multiplier {
         }
 
         private class MultiplyRunner extends Thread {
-            private int limit;
-            private int row;
+            private final int limit;
+            private final int row;
 
             MultiplyRunner(int row, int limit) {
                 super();
@@ -109,12 +109,10 @@ public class Multiplier {
                 for (int i = row; i < limit; i++) {
                     for (int j = 0; j < degree; j++) {
                         int value = 0;
-                        final int height = j;
-
                         for (int k = 0; k < degree; k++) {
-                            value += first.getElement(row, k) * second.getElement(k, height);
+                            value += first.getElement(row, k) * second.getElement(k, j);
                         }
-                        result.setElement(row, height, value);
+                        result.setElement(row, j, value);
                     }
                 }
             }
