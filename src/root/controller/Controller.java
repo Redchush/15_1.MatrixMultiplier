@@ -5,8 +5,8 @@ import root.model.ModelFacade;
 import root.model.matrix.exception.MultipleException;
 
 public class Controller {
-    private View view;
-    private ModelFacade modelFacade;
+    private final View view;
+    private final ModelFacade modelFacade;
 
     public Controller(View view, ModelFacade modelFacade) {
         this.view = view;
@@ -14,6 +14,7 @@ public class Controller {
     }
 
     public void doAction(){
+
         view.printGreeting();
         int degree = view.defineDegree();
         int[][] first = view.getMatrix(degree);
